@@ -8,7 +8,7 @@ function ContactForm() {
   const dispatch = useDispatch();
   const [contacts, setContacts] = useState([]);
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [number, setNumber] = useState("");
 
   useEffect(() => dispatch(getContact()), [dispatch]);
 
@@ -18,16 +18,16 @@ function ContactForm() {
       case "name":
         setName(value);
         break;
-      case "phone":
-        setPhone(value);
+      case "number":
+        setNumber(value);
         break;
       default:
         return;
     }
   };
   useEffect(() => {
-    setContacts({ name, phone });
-  }, [name, phone]);
+    setContacts({ name, number });
+  }, [name, number]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -38,7 +38,7 @@ function ContactForm() {
   const reset = () => {
     setContacts([]);
     setName("");
-    setPhone("");
+    setNumber("");
   };
 
   return (
@@ -55,11 +55,11 @@ function ContactForm() {
           title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           required
         />
-        <h2 className={style.text}>Phone</h2>
+        <h2 className={style.text}>Number</h2>
         <input
           type="tel"
-          name="phone"
-          value={phone}
+          name="number"
+          value={number}
           onChange={handleInputChange}
           className={style.input}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
