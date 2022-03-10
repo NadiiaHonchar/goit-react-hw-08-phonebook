@@ -6,9 +6,6 @@ const Navigation = () => {
     <nav>
       <NavLink to="/">HomePage</NavLink>
       <NavLink to="/contacts">Contacts</NavLink>
-      {/* <NavLink to="/register">Register</NavLink>
-      <NavLink to="/login" >LogIn</NavLink> */}
-      {/* <NavLink to="/logout">LogOut</NavLink> */}
     </nav>
   );
 };

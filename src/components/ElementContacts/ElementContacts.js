@@ -25,5 +25,3 @@ ElementContacts.propTypes = {
 };
 
 export default ElementContacts;
-
-

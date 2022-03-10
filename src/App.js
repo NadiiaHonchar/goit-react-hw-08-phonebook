@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
 import AppHead from "./components/AppHead";
 import Container from "./components/Container";
+import { fetchCurrentUser } from "./redux/auth/authOperation";
 const HomePage = React.lazy(() => import("./pages/HomePage"));
 const LogInPage = React.lazy(() => import("./pages/LogInPage.js"));
 const RegisterPage = React.lazy(() => import("./pages/RegicterPage.js"));
 const ContactsPage = React.lazy(() => import("./pages/ContactsPage"));
 
 export default function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCurrentUser());
+  }, [dispatch]);
+
   return (
     <>
       <AppHead></AppHead>
