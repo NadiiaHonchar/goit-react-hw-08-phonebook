@@ -1,20 +1,29 @@
 import PropTypes from "prop-types";
-import style from "./ElementContacts.module.css";
+import { Button, Container, Row, Col } from "react-bootstrap";
 
 const ElementContacts = ({ contacts: { id, name, number }, onDelContact }) => {
   return (
     <>
-      <p className={style.list}>
-        {name} : {number}{" "}
-      </p>
-      <button
-        type="submit"
-        name="button"
-        className={style.button}
-        onClick={() => onDelContact(id)}
-      >
-        Delete contact
-      </button>
+      <Container>
+        <Row>
+          <Col sm={2}>
+            <p>{name} :</p>
+          </Col>
+          <Col sm={2}>
+            <p>{number}</p>
+          </Col>
+          <Col>
+            <Button
+              variant="outline-success"
+              type="submit"
+              name="button"
+              onClick={() => onDelContact(id)}
+            >
+              Delete contact
+            </Button>
+          </Col>
+        </Row>
+      </Container>
     </>
   );
 };

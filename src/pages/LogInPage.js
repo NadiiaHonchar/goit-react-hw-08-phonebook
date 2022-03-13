@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logIn } from "../redux/auth/authOperation";
-import style from "../components/ContactForm/ContactForm.module.css";
+import { Button, Form, Container, Row, Col } from "react-bootstrap";
 
 function LogInPage() {
   const dispatch = useDispatch();
@@ -34,29 +34,47 @@ function LogInPage() {
 
   return (
     <>
-      <form onSubmit={handleSubmit} className={style.form}>
-        <h2 className={style.text}>Email</h2>
-        <input
-          type="email"
-          name="email"
-          value={email}
-          onChange={handleInputChange}
-          className={style.input}
-          required
-        />
-        <h2 className={style.text}>Password</h2>
-        <input
-          type="password"
-          name="password"
-          value={password}
-          onChange={handleInputChange}
-          className={style.input}
-          required
-        />
-        <button type="submit" name="button" className={style.button}>
-          LogIn
-        </button>
-      </form>
+      <Container>
+        <Form onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Row>
+              <Col sm={1}>
+                <Form.Label>Email</Form.Label>
+              </Col>
+              <Col>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  name="email"
+                  value={email}
+                  onChange={handleInputChange}
+                  required
+                />
+              </Col>
+            </Row>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Row>
+              <Col sm={1}>
+                <Form.Label>Password</Form.Label>
+              </Col>
+              <Col>
+                <Form.Control
+                  type="password"
+                  placeholder="Enter password"
+                  name="password"
+                  value={password}
+                  onChange={handleInputChange}
+                  required
+                />
+              </Col>
+            </Row>
+          </Form.Group>
+          <Button variant="outline-success" type="submit" name="button">
+            LogIn
+          </Button>
+        </Form>
+      </Container>
     </>
   );
 }

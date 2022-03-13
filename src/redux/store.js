@@ -1,4 +1,3 @@
-import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 import { contactsReducer } from "./reducers";
 import authSlice from "./auth/authSlice";
